@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7RP-tq-ZmG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Plants-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="searchViewController" id="BYZ-38-t0r" customClass="SearchViewController" customModule="Plants" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for Plants" translatesAutoresizingMaskIntoConstraints="NO" id="uQL-EI-Ach">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="0uQ-we-BFV"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-7l-7gk">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchCell" id="5LQ-i6-FaX" customClass="SearchCell" customModule="Plants" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5LQ-i6-FaX" id="Tdo-3R-uwl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOQ-UK-d1w" userLabel="Star">
+                                                    <rect key="frame" x="328" y="10" width="18" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="outline_eco_black_18dp"/>
+                                                    <state key="selected" image="baseline_eco_black_18dp"/>
+                                                    <connections>
+                                                        <action selector="starredButtonTapped:" destination="5LQ-i6-FaX" eventType="touchUpInside" id="5jr-fG-ok5"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZd-Fq-YfJ">
+                                                    <rect key="frame" x="282" y="10" width="18" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="baseline_favorite_border_black_18dp"/>
+                                                    <state key="selected" image="baseline_favorite_black_18dp"/>
+                                                    <connections>
+                                                        <action selector="favorite:" destination="5LQ-i6-FaX" eventType="touchUpInside" id="uLT-Nb-gCc"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGR-Kz-QQ2">
+                                                    <rect key="frame" x="15" y="12" width="253" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteButton" destination="kZd-Fq-YfJ" id="aTu-rL-IlE"/>
+                                            <outlet property="plantName" destination="fGR-Kz-QQ2" id="Jhd-Q0-OlZ"/>
+                                            <outlet property="starredButton" destination="UOQ-UK-d1w" id="0Mo-Ip-019"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No plant found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz1-vU-WM8">
+                                <rect key="frame" x="111.5" y="220" width="152.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="28I-FH-N7K">
+                                <rect key="frame" x="167.5" y="313.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZXV-Qb-VWa"/>
+                                    <constraint firstAttribute="width" constant="40" id="ZcE-yw-drO"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3aB-7l-7gk" firstAttribute="top" secondItem="uQL-EI-Ach" secondAttribute="bottom" id="BH2-wc-2tS"/>
+                            <constraint firstItem="uQL-EI-Ach" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IzA-dE-XbZ"/>
+                            <constraint firstItem="28I-FH-N7K" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MVA-qj-rwd"/>
+                            <constraint firstItem="uQL-EI-Ach" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Oqz-IU-5ZE"/>
+                            <constraint firstItem="3aB-7l-7gk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QBR-sP-hrY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3aB-7l-7gk" secondAttribute="trailing" id="RmU-wq-0I0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3aB-7l-7gk" secondAttribute="bottom" id="YpS-g1-PzH"/>
+                            <constraint firstItem="fz1-vU-WM8" firstAttribute="top" secondItem="uQL-EI-Ach" secondAttribute="bottom" constant="100" id="ZGd-MZ-ZUR"/>
+                            <constraint firstItem="fz1-vU-WM8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bEO-kA-NS1"/>
+                            <constraint firstItem="uQL-EI-Ach" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="evY-Rn-KRT"/>
+                            <constraint firstItem="28I-FH-N7K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o8L-bT-jQ7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plants" id="Yhh-l8-i4h">
+                        <barButtonItem key="backBarButtonItem" title="Plants" id="YyD-Gv-145"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="baseline_eco_black_18dp" id="zXi-bA-Yjr" userLabel="Star">
+                                <connections>
+                                    <segue destination="TwC-TM-2OK" kind="show" identifier="starSegue" id="U5d-Y0-fhM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="baseline_favorite_black_18dp" id="WuR-Hg-9hm">
+                                <connections>
+                                    <segue destination="TwC-TM-2OK" kind="show" identifier="favSegue" id="JNN-d2-FkM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loadingView" destination="28I-FH-N7K" id="caS-t3-wAD"/>
+                        <outlet property="noPlantLabel" destination="fz1-vU-WM8" id="5hC-KG-f5P"/>
+                        <outlet property="searchBar" destination="uQL-EI-Ach" id="uVU-Bi-Ds0"/>
+                        <outlet property="tableView" destination="3aB-7l-7gk" id="CMa-t7-gW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="458" y="99"/>
+        </scene>
+        <!--My Pot View Controller-->
+        <scene sceneID="49E-JQ-cUM">
+            <objects>
+                <viewController id="TwC-TM-2OK" customClass="MyPotViewController" customModule="Plants" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bk2-pU-Mkc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3V7-8n-cV4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favCell" id="aSq-30-Gd9">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aSq-30-Gd9" id="ode-Xm-ZBF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3V7-8n-cV4" firstAttribute="leading" secondItem="bAr-B3-Tlu" secondAttribute="leading" id="64a-4t-ggp"/>
+                            <constraint firstItem="bAr-B3-Tlu" firstAttribute="bottom" secondItem="3V7-8n-cV4" secondAttribute="bottom" id="A2N-QM-UxD"/>
+                            <constraint firstItem="bAr-B3-Tlu" firstAttribute="trailing" secondItem="3V7-8n-cV4" secondAttribute="trailing" id="etU-tM-vDy"/>
+                            <constraint firstItem="3V7-8n-cV4" firstAttribute="top" secondItem="bAr-B3-Tlu" secondAttribute="top" id="kOx-1l-pmQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bAr-B3-Tlu"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3V7-8n-cV4" id="YET-hr-2fk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDe-uy-cNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="99"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dZ7-Fm-1qi">
+            <objects>
+                <navigationController id="7RP-tq-ZmG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iQR-Td-blQ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zQ1-2s-8tY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hAX-56-SCa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mI4-zh-Z8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-356" y="99"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="baseline_eco_black_18dp" width="18" height="18"/>
+        <image name="baseline_favorite_black_18dp" width="18" height="18"/>
+        <image name="baseline_favorite_border_black_18dp" width="18" height="18"/>
+        <image name="outline_eco_black_18dp" width="18" height="18"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JNN-d2-FkM"/>
+    </inferredMetricsTieBreakers>
+</document>
